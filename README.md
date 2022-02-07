@@ -10,20 +10,31 @@ Each element is given a data-identifier , so now we can easily add and remove id
 
 # Instructions
 
-new Element(String: elementType (default is div), String: id (default is null), String: class (default is null))
+new Element(
+1. String: elementType (default is div), 
+2. String: id (default is null), 
+3. String: class (default is null), 
+4. String: identifier (default is identifier)
+)
 
 ## Example: 
-let main = new Element(main).append(document.body)
+let main = new Element(main).append('idName')
 main.setID('mainContainer')
 let div = new Element().append(main.getID())
 
 ## Methods of new Element()
-.append(String: idName) - appends to an id, and assigns an identifer dataset
-.getID() - returns the id of the element
-.setID(String: id) - sets the id of the element, best if done before you append to DOM elements
-.getClass() - returns the classes of the element
-.setClass(String: className) - sets the classes of the element, best if done before you append to DOM elements
-.removeClass(String: className) - removes the class specified in the parameter, CURRENTLY REMOVES ONE CLASS AT A TIME!
+1. **.append(String: idName)** - appends to an id, and assigns an identifer dataset
+**returns new Element(this,this,this,this)**
+2. **.getID()** - returns the id of the element
+**returns String: this.idName**
+3. **.setID(String: id)** - sets the id of the element, best if done before you append to DOM elements
+**returns new Element(this,this,this)** 
+4. **.getClass()** - returns the classes of the element
+**returns String: this.className**
+5. .**setClass(String: className)** - sets the classes of the element, best if done before you append to DOM elements
+**returns new Element(this,this,this)** 
+6. **.removeClass(String: className)** - removes the class specified in the parameter, CURRENTLY REMOVES ONE CLASS AT A TIME!
+**returns new Element(this,this,this)** 
 
 **WARNING** 
 DO NOT TRY TO APPEND AN ELEMENT TO ITSELF! (WIP)
