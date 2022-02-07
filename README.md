@@ -24,21 +24,21 @@ let div = new Element().append(main.getID())
 
 ## Methods of new Element()
 1. **.append(String: idName)** - appends to an id, and assigns an identifer dataset
-**returns new Element(this,this,this,this)**
+**returns new Element(this.elementType,this.idName,this.className,this.identifier)**
 2. **.getID()** - returns the id of the element
 **returns String: this.idName**
 3. **.setID(String: id)** - sets the id of the element, best if done before you append to DOM elements
-**returns new Element(this,this,this)** 
+**returns new Element(this.elementType,this.idName,this.className)** 
 4. **.getClass()** - returns the classes of the element
 **returns String: this.className**
 5. .**setClass(String: className)** - sets the classes of the element, best if done before you append to DOM elements
-**returns new Element(this,this,this)** 
+**returns new Element(this.elementType,this.idName,this.className)** 
 6. **.removeClass(String: className)** - removes the class specified in the parameter, CURRENTLY REMOVES ONE CLASS AT A TIME!
-**returns new Element(this,this,this)** 
+**returns new Element(this.elementType,this.idName,this.className)** 
 
 **WARNING** 
 DO NOT TRY TO APPEND AN ELEMENT TO ITSELF! (WIP)
-!!! UPDATE !!!
+**!!! UPDATE !!!**
 YOU CAN NOW APPEND AN ELEMENT TO ITSELF
 
 # Future
