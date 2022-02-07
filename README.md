@@ -6,16 +6,29 @@ Import the class into your javascript module, and create elements to your hearts
 
 You can declare elements and append them to elements with an ID reference, and continue to use javascripts built in element manipulation functionality
 
+Each element is given a data-identifier , so now we can easily add and remove id's and elements, even after its been placed on the DOM!
+
 # Instructions
 
-new Element(String: elementType, String: id (default is null), String: class (default is null))
+new Element(String: elementType (default is div), String: id (default is null), String: class (default is null))
 
-## Methods of new Element
+## Example: 
+let main = new Element(main).append(document.body)
+main.setID('mainContainer')
+let div = new Element().append(main.getID())
 
-append(String: id)
+## Methods of new Element()
+.append(String: idName) - appends to an id, and assigns an identifer dataset
+.getID() - returns the id of the element
+.setID(String: id) - sets the id of the element, best if done before you append to DOM elements
+.getClass() - returns the classes of the element
+.setClass(String: className) - sets the classes of the element, best if done before you append to DOM elements
+.removeClass(String: className) - removes the class specified in the parameter, CURRENTLY REMOVES ONE CLASS AT A TIME!
 
 **WARNING** 
-DO NOT TRY TO APPEND AND ELEMENT TO ITSELF! (WIP)
+DO NOT TRY TO APPEND AN ELEMENT TO ITSELF! (WIP)
+!!! UPDATE !!!
+YOU CAN NOW APPEND AN ELEMENT TO ITSELF
 
 # Future
 
