@@ -1,5 +1,5 @@
 class Element {
-    constructor(elementType, idName = null, className = null) {
+    constructor(elementType = 'div', idName = null, className = null) {
         this.elementType = elementType;
         this.idName = idName;
         this.className = className
@@ -16,9 +16,33 @@ class Element {
         }
     }
     append(id) {
-        return document.getElementById(id).appendChild(this.element);
+        document.getElementById(id).appendChild(this.element);
+        return new Element(this.elementType, this.idName, this.className)
     }
-
+    getID() {
+        return this.idName
+    }
+    setID(id) {
+        this.idName = id
+        return new Element(this.elementType, this.idName, this.className)
+    }
+    getClass() {
+        return this.className
+    }
+    setClass(className) {
+        this.className = className
+        return new Element(this.elementType, this.idName, this.className)
+    }
+    removeClass(className) {
+        let splitClass = this.className.split(' ');
+        if (splitClass.indexOf(className) == -1) {
+            throw new Error(`Class of ${className} not found`)
+        } else {
+            delete splitClass[splitClass.indexOf(className)]
+        }
+        this.className = splitClass.filter(() => true).join(' ');
+        return new Element(this.elementType, this.idName, this.className)
+    }
 
 }
 
