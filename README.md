@@ -18,23 +18,54 @@ new Element(
 )
 
 ## Example: 
+```
 let main = new Element(main).append('idName')
 main.setID('mainContainer')
 let div = new Element().append(main.getID())
 
+main.element.textContent = 'This is a novel idea'
+main.update()
+```
 ## Methods of new Element()
-1. **.append(String: idName)** - appends to an id, and assigns an identifer dataset
-**returns new Element(this.elementType,this.idName,this.className,this.identifier)**
-2. **.getID()** - returns the id of the element
-**returns String: this.idName**
-3. **.setID(String: id)** - sets the id of the element, best if done before you append to DOM elements
-**returns new Element(this.elementType,this.idName,this.className)** 
-4. **.getClass()** - returns the classes of the element
-**returns String: this.className**
-5. .**setClass(String: className)** - sets the classes of the element, best if done before you append to DOM elements
-**returns new Element(this.elementType,this.idName,this.className)** 
-6. **.removeClass(String: className)** - removes the class specified in the parameter, CURRENTLY REMOVES ONE CLASS AT A TIME!
-**returns new Element(this.elementType,this.idName,this.className)** 
+###### 1. **.append(String: idName)** - appends to an id, and assigns an identifer dataset
+###### returns 
+```
+new Element(this.elementType,this.idName,this.className, this.identifier)
+```
+###### 2. **.getID()** - returns the id of the element
+###### returns 
+```
+String: this.idName
+```
+###### 3. **.setID(String: id)** - sets the id of the element, best if done before you append to DOM elements
+###### returns 
+```
+new Element(this.elementType,this.idName,this.className, this.identifier)
+```
+###### 4. **.getClass()** - returns the classes of the element
+###### returns 
+```
+String: this.className
+```
+###### 5. .**setClass(String: className)** - sets the classes of the element, best if done before you append to DOM elements
+###### returns 
+```
+new Element(this.elementType,this.idName,this.className, this.identifier)
+```
+###### 6. **.removeClass(String: className)** - removes the class specified in the parameter, CURRENTLY REMOVES ONE CLASS AT A TIME!
+###### returns 
+```
+new Element(this.elementType,this.idName,this.className, this.identifier)
+``` 
+###### 7. **.update()** - update elements on the DOM that has been been set but not appended yet. Recommend calling this at the very end of updating all values 
+###### Example 
+```
+new Element()setID('mainDiv').setClass('row p-4').append('someID').update()
+```
+###### returns 
+```
+new Element(this.elementType,this.idName,this.className, this.identifier)
+```
 
 **WARNING** 
 DO NOT TRY TO APPEND AN ELEMENT TO ITSELF! (WIP)
