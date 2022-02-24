@@ -33,27 +33,27 @@ class Element {
         return this.idName
     }
     setID(id) {
-        let elArr = document.getElementsByTagName(this.elementType, 'main')
+        let elArr = document.getElementsByTagName(this.elementType)
         for (var i = 0; i < elArr.length; i++) {
             if (elArr[i].dataset.identifier == this.identifier) {
                 elArr[i].id = id
                 this.idName = id
             }
         }
-        return new Element(this.elementType, this.idName, this.className)
+        return new Element(this.elementType, this.idName, this.className, this.identifier)
     }
     getClass() {
         return this.className
     }
     setClass(className) {
-        let elArr = document.getElementsByTagName(this.elementType, 'main')
+        let elArr = document.getElementsByTagName(this.elementType)
         for (var i = 0; i < elArr.length; i++) {
             if (elArr[i].dataset.identifier == this.identifier) {
                 elArr[i].className = className
                 this.className = className
             }
         }
-        return new Element(this.elementType, this.idName, this.className)
+        return new Element(this.elementType, this.idName, this.className, this.identifier)
     }
     removeClass(className) {
         let splitClass = this.className.split(' ');
@@ -63,14 +63,26 @@ class Element {
             delete splitClass[splitClass.indexOf(className)]
         }
         this.className = splitClass.filter(() => true).join(' ');
-        let elArr = document.getElementsByTagName(this.elementType, 'main')
+        let elArr = document.getElementsByTagName(this.elementType)
         for (var i = 0; i < elArr.length; i++) {
             if (elArr[i].dataset.identifier == this.identifier) {
                 elArr[i].className = this.className
                 this.className = className
             }
         }
-        return new Element(this.elementType, this.idName, this.className)
+        return new Element(this.elementType, this.idName, this.className, this.identifier)
+    }
+    update() {
+        console.log(this.element)
+        let elArr = document.getElementsByTagName(this.elementType)
+        for (var i = 0; i < elArr.length; i++) {
+            if (elArr[i].dataset.identifier == this.identifier) {
+                console.log(elArr, this.element.textContent)
+                elArr[i].parentNode.replaceChild(this.element, elArr[i])
+
+            }
+        }
+        return new Element(this.elementType, this.idName, this.className, this.identifier)
     }
 
 }
